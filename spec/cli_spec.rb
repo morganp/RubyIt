@@ -1,8 +1,5 @@
 require '../lib/ruby_it'
 
-# TODO create the generated folder as empty folder can not be added to git.
-
-
 describe RubyIt, "Command Line Interface" do
   it "Generates Files to correct output folder" do 
     source                  = "../examples/hello_erb.rtxt"
