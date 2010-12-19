@@ -20,7 +20,7 @@ spec = Gem::Specification.new do |s|
   s.email        = NAME + "_gem@amaras-tech.co.uk"
   s.description  = <<-eos
     Comand Line Interface (CLI) and Object class can be used to evaluate erb template files
-    file.rtxt will be turnealuated and written as file.txt
+    file.rtxt will be  evaluated and written as file.txt
   eos
    s.files        =  ["bin/#{NAME}"]
    s.files        += Dir.glob("LICENSE.rtf")
