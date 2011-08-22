@@ -1,9 +1,14 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
+begin
+  require_relative File.join('..', 'lib', 'ruby_it')
+rescue
+  # Ruby 1.8 Falls back here
+  require 'rubygems'
 
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-require 'ruby_it'
+  $LOAD_PATH.unshift File.join( File.dirname(__FILE__), '..', 'lib')
+  require 'ruby_it'
+end
 
 opts = RubyIt::RubyItOptions.parse( ARGV )
 
