@@ -1,14 +1,7 @@
-require 'rake/gempackagetask'
 
 NAME = "ruby_it"
 
-Dir.chdir( './lib/')
-puts Dir.getwd
-
-require "ruby_it"
-
-Dir.chdir( './../')
-puts Dir.getwd
+require File.join( File.dirname(__FILE__), 'lib', NAME )
 
 spec = Gem::Specification.new do |s|
   s.name         = NAME
@@ -22,11 +15,11 @@ spec = Gem::Specification.new do |s|
     Comand Line Interface (CLI) and Object class can be used to evaluate erb template files
     file.rtxt will be  evaluated and written as file.txt
   eos
-   s.files        =  ["bin/#{NAME}"]
+   s.files        =  ["bin/*"]
    s.files        += Dir.glob("LICENSE.rtf")
    s.files        += Dir.glob("examples/*")
    s.files        += Dir.glob("lib/**/*")
-   s.files        += Dir.glob("spec/*")
+   s.files        += Dir.glob("spec/**/*")
    s.bindir       = 'bin'
 
    s.executables  = [NAME]
@@ -36,5 +29,4 @@ spec = Gem::Specification.new do |s|
 
 
   end
-  Rake::GemPackageTask.new(spec).define
 
