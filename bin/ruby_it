@@ -13,6 +13,12 @@ end
 opts = RubyIt::RubyItOptions.parse( ARGV )
 
 
+if not opts.data.nil? 
+  opts.data.each do |data|
+    load data
+  end
+end
+
 opts.filelist.each do |f|
 
   pp f
