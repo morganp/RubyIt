@@ -15,7 +15,7 @@ spec = Gem::Specification.new do |s|
     Comand Line Interface (CLI) and Object class can be used to evaluate erb template files
     file.rtxt will be  evaluated and written as file.txt
   eos
-   s.files        =  ["bin/*"]
+   s.files        =  Dir.glob("bin/*")
    s.files        += Dir.glob("LICENSE.rtf")
    s.files        += Dir.glob("examples/*")
    s.files        += Dir.glob("lib/**/*")
