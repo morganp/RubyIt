@@ -1,54 +1,83 @@
-require '../lib/ruby_it'
+require 'spec_helper'
 
-describe RubyIt, "Command Line Interface" do
-  it "Generates Files to correct output folder" do 
-    source                  = "../examples/hello_erb.rtxt"
-    generated               = "../generated/hello_erb.txt"
-    source_expected_text    = "\n<% 3.times do -%>\n<%= 'hello' %>\n<% end -%>\n"
-    generated_expected_text = "hello\nhello\nhello\n"
+describe RubyIt do
+  before(:all) do
+    @prefix = File.dirname( __FILE__ )
 
-    check_source_and_remove_gen( source, generated )
-
-    check_source_text( source, source_expected_text )
-
-    # run CLI (With blocking function)
-    do_and_report("../bin/ruby_it --outpath ../generated/ --file #{source}")
-
-    check_generated_text( generated, generated_expected_text )
+    puts @prefix
   end
+  describe RubyIt, "Command Line Interface" do
+    it "Generates Files to correct output folder" do 
+      source                  = "#{@prefix}/../examples/hello_erb.rtxt"
+      generated               = "#{@prefix}/../generated/hello_erb.txt"
+      source_expected_text    = "\n<% 3.times do -%>\n<%= 'hello' %>\n<% end -%>\n"
+      generated_expected_text = "hello\nhello\nhello\n"
+
+      check_source_and_remove_gen( source, generated )
+
+      check_source_text( source, source_expected_text )
+
+      # run CLI (With blocking function)
+      do_and_report("#{@prefix}/../bin/ruby_it --outpath #{@prefix}/../generated/ --file #{source}")
+
+      check_generated_text( generated, generated_expected_text )
+    end
 
 
-  it "evaluates command line parameters" do
-    source                  = "../examples/hellos.rtxt"
-    generated               = "../generated/hellos.txt"
-    source_expected_text    = "\n<% @hellos.times do -%>\n<%= 'Hello' %>\n<% end -%>\n"
-    generated_expected_text = "Hello\nHello\nHello\n"
+    it "evaluates command line parameters" do
+      source                  = "#{@prefix}/../examples/hellos.rtxt"
+      generated               = "#{@prefix}/../generated/hellos.txt"
+      source_expected_text    = "\n<% @hellos.times do -%>\n<%= 'Hello' %>\n<% end -%>\n"
+      generated_expected_text = "Hello\nHello\nHello\n"
 
-    check_source_and_remove_gen( source, generated )
+      check_source_and_remove_gen( source, generated )
 
-    check_source_text( source, source_expected_text )
+      check_source_text( source, source_expected_text )
 
-    # run CLI (With blocking function)
-    do_and_report("../bin/ruby_it --parameter @hellos=3 --outpath ../generated/ --file #{source}")
+      # run CLI (With blocking function)
+      do_and_report("#{@prefix}/../bin/ruby_it --parameter @hellos=3 --outpath #{@prefix}/../generated/ --file #{source}")
 
-    check_generated_text( generated, generated_expected_text )
-  end
+      check_generated_text( generated, generated_expected_text )
+    end
 
 
-it "evaluates command line parameters with different values '5'" do
-    source                  = "../examples/hellos.rtxt"
-    generated               = "../generated/hellos.txt"
-    source_expected_text    = "\n<% @hellos.times do -%>\n<%= 'Hello' %>\n<% end -%>\n"
-    generated_expected_text = "Hello\nHello\nHello\nHello\nHello\n"
+    it "evaluates command line parameters with different values '5'" do
+      source                  = "#{@prefix}/../examples/hellos.rtxt"
+      generated               = "#{@prefix}/../generated/hellos.txt"
+      source_expected_text    = "\n<% @hellos.times do -%>\n<%= 'Hello' %>\n<% end -%>\n"
+      generated_expected_text = "Hello\nHello\nHello\nHello\nHello\n"
 
-    check_source_and_remove_gen( source, generated )
+      check_source_and_remove_gen( source, generated )
 
-    check_source_text( source, source_expected_text )
+      check_source_text( source, source_expected_text )
 
-    # run CLI (With blocking function)
-    do_and_report("../bin/ruby_it --parameter @hellos=5 --outpath ../generated/ --file #{source}")
+      # run CLI (With blocking function)
+      do_and_report("#{@prefix}/../bin/ruby_it --parameter @hellos=5 --outpath #{@prefix}/../generated/ --file #{source}")
 
-    check_generated_text( generated, generated_expected_text )
+      check_generated_text( generated, generated_expected_text )
+    end
+    it "evaluates command line parameters with different values '5'" do
+      source                  = "#{@prefix}/../examples/example3.rtxt"
+      generated               = "#{@prefix}/../generated/example3.txt"
+      source_expected_text    = "<%= @size %>\n<%= @name %>\n"
+      generated_expected_text = "3\nHelloWorld\n"
+
+      check_source_and_remove_gen( source, generated )
+
+      check_source_text( source, source_expected_text )
+
+
+puts "#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --outpath #{@prefix}/../generated/ --file #{source}"
+
+ 
+
+      # run CLI (With blocking function)
+      do_and_report("#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --outpath #{@prefix}/../generated/ --file #{source}")
+
+      check_generated_text( generated, generated_expected_text )
+    end
+
+
   end
 end
 
