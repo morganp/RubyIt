@@ -14,7 +14,6 @@ describe RubyIt do
       generated_expected_text = "hello\nhello\nhello\n"
 
       check_source_and_remove_gen( source, generated )
-
       check_source_text( source, source_expected_text )
 
       # run CLI (With blocking function)
@@ -31,7 +30,6 @@ describe RubyIt do
       generated_expected_text = "Hello\nHello\nHello\n"
 
       check_source_and_remove_gen( source, generated )
-
       check_source_text( source, source_expected_text )
 
       # run CLI (With blocking function)
@@ -48,7 +46,6 @@ describe RubyIt do
       generated_expected_text = "Hello\nHello\nHello\nHello\nHello\n"
 
       check_source_and_remove_gen( source, generated )
-
       check_source_text( source, source_expected_text )
 
       # run CLI (With blocking function)
@@ -56,6 +53,8 @@ describe RubyIt do
 
       check_generated_text( generated, generated_expected_text )
     end
+
+
     it "evaluates command line parameters with different values '5'" do
       source                  = "#{@prefix}/../examples/example3.rtxt"
       generated               = "#{@prefix}/../generated/example3.txt"
@@ -63,13 +62,8 @@ describe RubyIt do
       generated_expected_text = "3\nHelloWorld\n"
 
       check_source_and_remove_gen( source, generated )
-
       check_source_text( source, source_expected_text )
-
-
-puts "#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --outpath #{@prefix}/../generated/ --file #{source}"
-
- 
+      #puts "#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --outpath #{@prefix}/../generated/ --file #{source}"
 
       # run CLI (With blocking function)
       do_and_report("#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --outpath #{@prefix}/../generated/ --file #{source}")
@@ -112,6 +106,7 @@ def do_and_report(command, report=false)
       puts element
     end
   end
+  return g
 end
 
 def check_source_and_remove_gen( source, generated )
