@@ -78,6 +78,25 @@ puts "#{@prefix}/../bin/ruby_it --config #{@prefix}/../examples/example3.conf --
     end
 
 
+
+    it "Output is not writabe" do
+      source                  = "#{@prefix}/../examples/example4.rtxt"
+      generated               = "#{@prefix}/../examples/example4.txt"
+      source_expected_text    = ""
+      generated_expected_text = ""
+
+      # TODO Create output and chmod to 000
+      
+      #puts "#{@prefix}/../bin/ruby_it --file #{source}"
+
+      # run CLI (With blocking function)
+      require 'open3'
+      stdin, stdout, stderr = Open3.popen3("#{@prefix}/../bin/ruby_it --file #{source}")
+
+      #puts stdout.readlines
+      stderr.readlines[0].strip.should == "ERROR #{generated} is not writable"
+    end
+
   end
 end
 

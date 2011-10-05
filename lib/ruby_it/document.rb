@@ -93,9 +93,14 @@ module RubyIt
 
     def write
       #write evaluated template to file:
-      File.open(self.output, 'w') do |file_out|  
+      if ::File.writable? self.output or not ::File.exists? self.output
+      
+        file_out = File.open(self.output, 'w')
         file_out.puts self.result
-      end 
+        file_out.close 
+      else
+        $stderr.puts "ERROR #{self.output} is not writable"
+      end
       
     end
 
