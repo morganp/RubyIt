@@ -1,0 +1,2 @@
+<% $parent.out_filename = "example5.log" -%>
+Example 5 The template changes the output file.
