@@ -79,9 +79,10 @@ describe RubyIt do
       source_expected_text    = ""
       generated_expected_text = ""
 
-      # TODO Create output and chmod to 000
-      
-      #puts "#{@prefix}/../bin/ruby_it --file #{source}"
+      # Create output and chmod to 000
+      ::File.delete( generated )
+      ::File.open( generated, "w" ){ |f| f.write '' }
+      ::File.chmod(0000, generated )
 
       # run CLI (With blocking function)
       require 'open3'
