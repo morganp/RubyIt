@@ -28,6 +28,9 @@ module RubyIt
     end
 
     def result
+      #Giving The template file acces to the parent object
+      $parent = self ## <-- Global bad, but works for this
+
       #Add params and template file text and clear white space
       text   =  clean_whitespace( get_parameters + erb_text )
 
@@ -95,9 +98,11 @@ module RubyIt
       #write evaluated template to file:
       if ::File.writable? self.output or not ::File.exists? self.output
       
-        file_out = File.open(self.output, 'w')
-        file_out.puts self.result
-        file_out.close 
+        result   = self.result
+        file_out = File.open( self.output, 'w' )
+        file_out << result
+        file_out.close
+        
       else
         $stderr.puts "ERROR #{self.output} is not writable"
       end

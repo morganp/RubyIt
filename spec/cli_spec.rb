@@ -91,6 +91,22 @@ describe RubyIt do
       #puts stdout.readlines
       stderr.readlines[0].strip.should == "ERROR #{generated} is not writable"
     end
+    
+    
+    it "Template Redirects output" do
+      source                  = "#{@prefix}/../examples/example5.rtxt"
+      generated               = "#{@prefix}/../generated/example5.log"
+      source_expected_text    = "<% $parent.out_filename = \"example5.log\" -%>\nExample 5 The template changes the output file.\n"
+      generated_expected_text = "Example 5 The template changes the output file.\n"
+
+      check_source_and_remove_gen( source, generated )
+      check_source_text( source, source_expected_text )
+
+      # run CLI (With blocking function)
+      do_and_report("#{@prefix}/../bin/ruby_it --outpath #{@prefix}/../generated/ --file #{source}")
+
+      check_generated_text( generated, generated_expected_text )
+    end
 
   end
 end
