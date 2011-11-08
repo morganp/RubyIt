@@ -59,16 +59,9 @@ module RubyIt
 
     def add_parameter( param )
       @erb_parameters ||= Array.new
-      if param.class == Array
-        #If an Array break out top level of array
-        param.each do |line|
-         @erb_parameters << line
-        end
-      else
-        #For strings and all other types jsut append to array
-        @erb_parameters << param
+      Array(param).each do |line|
+       @erb_parameters << line
       end
-
     end
 
     def get_parameters
