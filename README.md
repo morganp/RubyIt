@@ -41,7 +41,7 @@ hellos.rtxt, file with erb
     <%= 'Hello' %>
     <% end -%>
     
-[More Examples](./tree/master/examples)
+[More Examples](https://github.com/morganp/RubyIt/tree/master/examples)
    
 
 
