@@ -35,6 +35,16 @@ hello.conf
 
     @hellos = 15
 
+hellos.rtxt, file with erb
+
+    <% @hellos.times do -%>
+    <%= 'Hello' %>
+    <% end -%>
+    
+[More Examples](tree/master/examples)
+   
+
+
 File Names
 --------
 
