@@ -80,7 +80,7 @@ describe RubyIt do
       generated_expected_text = ""
 
       # Create output and chmod to 000
-      ::File.delete( generated )
+      ::File.delete( generated ) if ::File.exists? generated
       ::File.open( generated, "w" ){ |f| f.write '' }
       ::File.chmod(0000, generated )
 
@@ -88,8 +88,9 @@ describe RubyIt do
       require 'open3'
       stdin, stdout, stderr = Open3.popen3("#{@prefix}/../bin/ruby_it --file #{source}")
 
-      #puts stdout.readlines
       stderr.readlines[0].strip.should == "ERROR #{generated} is not writable"
+      
+      ::File.delete( generated ) if ::File.exists? generated
     end
     
     
