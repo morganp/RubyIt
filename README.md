@@ -41,6 +41,17 @@ hellos.rtxt, file with erb
     <%= 'Hello' %>
     <% end -%>
     
+As part of a Ruby script
+
+    require 'ruby_it'
+    
+    thing_var = 3
+    rubyit = RubyIt::Document.new("../templates/hellos.rtxt")
+    rubyit.add_parameter( "@hellos = #{thing_var}" )
+    rubyit.write
+
+    
+    
 [More Examples](https://github.com/morganp/RubyIt/tree/master/examples)
    
 
