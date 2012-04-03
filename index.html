@@ -45,17 +45,17 @@
 <pre><code>$ ruby_it --help
 </code></pre>
 
-<p>Basic (all variables contained in the template):</p>
+<h3>Basic (all variables contained in the template):</h3>
 
 <pre><code>$ ruby_it  --outpath ./ --file ./hellos.rtxt
 </code></pre>
 
-<p>Intermediate (command line variables):</p>
+<h3>Intermediate (command line variables):</h3>
 
 <pre><code>$ ruby_it --parameter @hellos=10 --outpath ./ --file ./hellos.rtxt
 </code></pre>
 
-<p>Advanced (Specify a centralised config file used by multiple templates):</p>
+<h3>Advanced (Specify a centralised config file used by multiple templates):</h3>
 
 <pre><code>$ ruby_it --config hello.conf --outpath ./ --file ./hellos.rtxt
 </code></pre>
@@ -72,7 +72,7 @@
 &lt;% end -%&gt;
 </code></pre>
 
-<p>As part of a Ruby script</p>
+<h3>As part of a Ruby script</h3>
 
 <pre><code>require 'ruby_it'
 
