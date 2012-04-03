@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <h1>Rubyit</h1>
-<p>A command line program for evaluating erb templates.</p>
+        <p>A command line program for evaluating erb templates.</p>
         <p class="view"><a href="https://github.com/morganp/RubyIt">View the Project on GitHub <small>morganp/RubyIt</small></a></p>
         <ul>
           <li><a href="https://github.com/morganp/RubyIt/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -27,7 +27,7 @@
         </ul>
       </header>
       <section>
-        <p>A command line utility for parsing and evaluating any file with Embedded Ruby (erb). Example scenarios include using the flexibility of ruby to build a web site but which is static and does not require a restful interface. It can be created using ruby then built to a static site. Lowering maintenance and production costs, as nginx can be used to serve static files.</p>
+        <p>A command line utility for evaluating any file with Embedded Ruby (erb). Example scenarios include using the flexibility of ruby to build a web site but which is static and does not require a restful interface. It can be created using ruby then built to a static site. Lowering maintenance and production costs, as nginx can be used to serve static files.</p>
 
 <p>Alternatively you could have a .rbashrc with switches for different Operating Systems this then builds to custom .bashrc files. </p>
 
@@ -40,7 +40,7 @@
 
 <h2>Usage</h2>
 
-<p>Help:</p>
+<h3>Help:</h3>
 
 <pre><code>$ ruby_it --help
 </code></pre>
@@ -82,11 +82,11 @@ rubyit.add_parameter( "@hellos = #{thing_var}" )
 rubyit.write
 </code></pre>
 
-<p><a href="https://github.com/morganp/RubyIt/tree/master/examples">More Examples</a></p>
+<h3><a href="https://github.com/morganp/RubyIt/tree/master/examples">More Examples</a></h3>
 
 <h2>File Names</h2>
 
-<p>The input files mist have a '.r' in the file extension when building this will be replaced with '.'. </p>
+<p>The input files must have a '.r' in the file extension when building this will be replaced with '.'. </p>
 
 <pre><code>*.rhtml    -&gt; *.html
  .rbashrc  -&gt; .bashrc
