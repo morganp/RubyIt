@@ -59,7 +59,7 @@ As part of a Ruby script
 File Names
 --------
 
-The input files mist have a '.r' in the file extension when building this will be replaced with '.'. 
+The input files must have a '.r' in the file extension when building this will be replaced with '.'. 
 
     *.rhtml    -> *.html
      .rbashrc  -> .bashrc
