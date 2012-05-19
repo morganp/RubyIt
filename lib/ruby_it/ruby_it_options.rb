@@ -1,6 +1,6 @@
 require 'optparse'
-   require 'optparse/time'
-   require 'ostruct'
+require 'optparse/time'
+require 'ostruct'
 
 
 module RubyIt
