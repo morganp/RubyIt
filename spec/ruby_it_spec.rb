@@ -5,7 +5,8 @@ require 'spec_helper'
 
 describe RubyIt do
   before(:all) do
-    @prefix = File.dirname( __FILE__ )
+    @prefix   = File.dirname( __FILE__ )
+    @fixtures = File.join( File.dirname( __FILE__ ), 'fixtures' ) 
   end
 
 
