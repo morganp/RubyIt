@@ -19,6 +19,7 @@ module RubyIt
       @out_filename = set_out_file( output )
     end
 
+
     def erb_text
       @erb_text ||= File.read( @input )
     end 
@@ -50,10 +51,16 @@ module RubyIt
     def erb_conversion( erb_text )
       begin
         return ERB.new(erb_text, 0, "%").result
-      rescue
-        puts "Error parsing #{@input}"
-        puts $!.inspect
+      rescue => error
+        first_line = error.backtrace[0]
+        if first_line.match(/\(erb\)\W*(\d*)/)
+          $stderr.puts "Error parsing #{@input} on line #{$1}"
+        else
+          $stderr.puts "Error parsing #{@input}"
+        end
+        $stderr.puts error
         fail
+
       end
     end
 
