@@ -118,8 +118,12 @@ describe RubyIt do
     end
 
     it "Redirect output after intialisation" do
-      # TODO
-      puts "fill in this section"
+      rubyit = RubyIt::Document.new("#{@prefix}/../examples/hellos.rtxt", '', "#{@prefix}/../generated")
+      rubyit.out_filename  = "hellos_renamed.txt"
+
+      rubyit.input.should  == "#{@prefix}/../examples/hellos.rtxt"
+      rubyit.output.should == "#{@prefix}/../generated/hellos_renamed.txt"
+      rubyit.path.should   == "#{@prefix}/../generated/"
     end
   end
 
