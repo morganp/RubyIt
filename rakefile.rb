@@ -13,7 +13,7 @@ task :default => 'test:spec'
 
 namespace :deploy do
 
-  ## name and versio taken from 
+  ## name and version taken from 
   ## https://github.com/mojombo/rakegem
   def name
     @name ||= Dir['*.gemspec'].first.split('.').first
