@@ -50,7 +50,11 @@ module RubyIt
 
     def erb_conversion( erb_text )
       begin
-        return ERB.new(erb_text, 0, "%").result
+        bre = ERB.new(erb_text, 0, "%")
+        ## Set filename so __FILE__ can be used in templates
+        bre.filename = @input 
+
+        return bre.result
       rescue => error
         first_line = error.backtrace[0]
         if first_line.match(/\(erb\)\W*(\d*)/)
