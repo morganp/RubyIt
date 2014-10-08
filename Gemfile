@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 #Normal gem depedancies go in ruby_it.gemspec
 gemspec
