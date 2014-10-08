@@ -137,11 +137,11 @@ module RubyIt
           path = path + "/"
         end
         if $verbose==1 then
-          print("Output redirection to #{path} \n")
+          puts("Output redirection to #{path} \n")
         end
       else
-        print("ERROR Output redirection path specified is not valid \n")
-        print("#{path} is not a valid directory \n")
+        $stderr.puts("ERROR Output redirection path specified is not valid \n")
+        $stderr.puts("#{path} is not a valid directory \n")
         #Set error code and exit
         exit 1
       end
