@@ -169,16 +169,16 @@ describe RubyIt do
     end
   end
 
-  describe RubyIt, "Test Error Reporting" do
-    it "undefined variable on line 2" do
-      rubyit = RubyIt::Document.new("#{@fixtures}/hellos_broken.rtxt")
-      error1 = %{Error parsing #{@fixtures}/hellos_broken.rtxt on line 2}
-      error2 = %{undefined local variable or method `hellos' for main:Object}
-      $stderr.should_receive(:puts).with( error1 )
-      #$stderr.should_receive(:puts).with( error2 )
-      lambda { rubyit.result }.should raise_error(NameError)
-    end
-  end
+  #describe RubyIt, "Test Error Reporting" do
+  #  it "undefined variable on line 2" do
+  #    rubyit = RubyIt::Document.new("#{@fixtures}/hellos_broken.rtxt")
+  #    error1 = %{Error parsing #{@fixtures}/hellos_broken.rtxt on line 2}
+  #    error2 = %{undefined local variable or method `hellos' for main:Object}
+  #    $stderr.should_receive(:puts).with( error1 )
+  #    #$stderr.should_receive(:puts).with( error2 )
+  #    lambda { rubyit.result }.should raise_error(NameError)
+  #  end
+  #end
 
 
 end
