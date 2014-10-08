@@ -1,5 +1,5 @@
 module RubyIt
-  VERSION = "0.4.0"
+  VERSION = "0.5.0"
 end
 
 #Ruby 1.9.2 did not work with the relative links
